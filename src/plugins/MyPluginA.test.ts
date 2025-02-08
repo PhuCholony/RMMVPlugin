@@ -1,6 +1,6 @@
-import { MyPlugin } from './MyPlugin'
+import { MyPluginA } from './MyPluginA'
 
 test('MyPlugin should initialize correctly', () => {
-  const plugin = new MyPlugin()
+  const plugin = new MyPluginA()
   expect(plugin).toBeDefined()
 })

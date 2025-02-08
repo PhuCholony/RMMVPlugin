@@ -5,9 +5,12 @@ const BundleAnalyzerPlugin =
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.ts',
+  entry: {
+    MyPluginA: './src/plugins/MyPluginA.ts',
+    MyPluginB: './src/plugins/MyPluginB.ts'
+  },
   output: {
-    filename: 'bundle_[contenthash:8].js',
+    filename: '[name].js',
     path: resolve(__dirname, 'dist')
   },
   resolve: {
@@ -27,7 +30,8 @@ module.exports = {
     usedExports: true,
     minimize: true,
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      name: 'common'
     }
   }
 }
