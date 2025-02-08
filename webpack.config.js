@@ -2,6 +2,7 @@
 const { resolve } = require('path')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const isAnalyze = process.argv.includes('--analyze')
 
 module.exports = {
   mode: 'production',
@@ -25,7 +26,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [new BundleAnalyzerPlugin()],
+  plugins: [...(isAnalyze ? [new BundleAnalyzerPlugin()] : [])],
   optimization: {
     usedExports: true,
     minimize: true,
